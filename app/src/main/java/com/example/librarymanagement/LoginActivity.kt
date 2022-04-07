@@ -13,8 +13,15 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         val bckBtn = findViewById<ImageButton>(R.id.bck_btn)
         val forBtn = findViewById<TextView>(R.id.for_pass_tv)
+        val loginBtn = findViewById<Button>(R.id.login_btn2)
         bckBtn.setOnClickListener {
             onBackPressed()
+        }
+
+        loginBtn.setOnClickListener {
+            Intent(this, HomeActivity::class.java).also {
+                startActivity(it)
+            }
         }
 
         forBtn.setOnClickListener{

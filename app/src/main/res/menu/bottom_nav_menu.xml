@@ -4,22 +4,22 @@
     tools:showIn="bottom_nav_view">
 
     <item
-        android:id="@+id/addBook"
+        android:id="@+id/addBookFragment"
         android:icon="@drawable/ic_1"
         android:title="Add Book"/>
 
     <item
-        android:id="@+id/removeBook"
+        android:id="@+id/removeBookFragment"
         android:icon="@drawable/ic_1"
         android:title="Remove Book"/>
 
     <item
-        android:id="@+id/userInfo"
+        android:id="@+id/userInfoFragment"
         android:icon="@drawable/ic_1"
         android:title="User Info"/>
 
     <item
-        android:id="@+id/issuedBook"
+        android:id="@+id/issueBookFragment"
         android:icon="@drawable/ic_1"
         android:title="Issued Book"/>
 

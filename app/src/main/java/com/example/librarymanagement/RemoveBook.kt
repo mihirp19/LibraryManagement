@@ -6,6 +6,6 @@ import android.os.Bundle
 class RemoveBook : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_remove_book)
+        setContentView(R.layout.fragment_remove_book)
     }
 }

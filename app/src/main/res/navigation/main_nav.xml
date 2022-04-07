@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/addBookFragment">
+
+    <fragment
+        android:id="@+id/addBookFragment"
+        android:name="com.example.librarymanagement.fragments.AddBookFragment"
+        android:label="AddBookFragment" />
+    <fragment
+        android:id="@+id/issueBookFragment"
+        android:name="com.example.librarymanagement.fragments.IssueBookFragment"
+        android:label="IssueBookFragment" />
+    <fragment
+        android:id="@+id/removeBookFragment"
+        android:name="com.example.librarymanagement.fragments.RemoveBookFragment"
+        android:label="RemoveBookFragment" />
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.example.librarymanagement.fragments.UserInfoFragment"
+        android:label="UserInfoFragment" />
+</navigation>
