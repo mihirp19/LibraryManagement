@@ -35,9 +35,9 @@
                 android:layout_margin="20dp"
                 android:background="@drawable/button_bg"
                 android:hint="Enter Name of book"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
                 android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 app:layout_constraintTop_toBottomOf="@id/tv_add_book" />
 
             <EditText
@@ -47,9 +47,9 @@
                 android:layout_margin="20dp"
                 android:background="@drawable/button_bg"
                 android:hint="Enter Author of book"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
                 android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 app:layout_constraintTop_toBottomOf="@id/et_name_of_book" />
 
             <EditText
@@ -58,10 +58,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:background="@drawable/button_bg"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
                 android:hint="Publish Year"
                 android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 app:layout_constraintTop_toBottomOf="@id/et_author_of_book" />
 
             <EditText
@@ -71,9 +71,9 @@
                 android:layout_margin="20dp"
                 android:background="@drawable/button_bg"
                 android:hint="Enter Category of book"
-                android:textColorHint="@color/black"
                 android:padding="10dp"
                 android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 app:layout_constraintTop_toBottomOf="@id/et_year" />
 
 
@@ -92,11 +92,12 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_books_add_book_frag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/btn_add_book"
                 android:layout_marginTop="20dp"
-                tools:listitem="@layout/remove_book_list"/>
+                app:layout_constraintTop_toBottomOf="@id/btn_add_book"
+                tools:listitem="@layout/remove_book_list" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

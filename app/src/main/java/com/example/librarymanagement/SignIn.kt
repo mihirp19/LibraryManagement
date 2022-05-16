@@ -12,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 class SignIn : AppCompatActivity() {
-    private lateinit var mAuth:FirebaseAuth
+    private lateinit var mAuth: FirebaseAuth
     private val userCollection = FirebaseFirestore.getInstance().collection("user")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,30 +27,33 @@ class SignIn : AppCompatActivity() {
 
         sigupBtn.setOnClickListener {
             val user = checkFields()
-            if(user != null) {
+            if (user != null) {
                 val passwordTv = findViewById<EditText>(R.id.et_pass)
-                mAuth.createUserWithEmailAndPassword(user.email, passwordTv.text.toString()).addOnCompleteListener(
-                    this
-                ) { task ->
-                    if(task.isSuccessful){
-                        Toast.makeText(this@SignIn, "Signup Successful", Toast.LENGTH_LONG).show()
-                        userCollection.document(user.uid).set(user)
-                    } else {
-                        Log.d("SignInActivity: ",task.exception.toString())
+                mAuth.createUserWithEmailAndPassword(user.email, passwordTv.text.toString())
+                    .addOnCompleteListener(
+                        this
+                    ) { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this@SignIn, "Signup Successful", Toast.LENGTH_LONG)
+                                .show()
+                            userCollection.document(user.uid).set(user)
+                        } else {
+                            Log.d("SignInActivity: ", task.exception.toString())
+                        }
                     }
-                }
             }
         }
 
-        bckBtn.setOnClickListener{
+        bckBtn.setOnClickListener {
             onBackPressed()
         }
-        forBtn.setOnClickListener{
+        forBtn.setOnClickListener {
             Intent(this, LoginActivity::class.java).also {
                 startActivity(it)
             }
         }
     }
+
     override fun onBackPressed() {
         super.onBackPressed()
         Intent(this, MainActivity::class.java).also {
@@ -67,13 +70,13 @@ class SignIn : AppCompatActivity() {
 
         val uid = UUID.randomUUID().toString().replace("-", "")
 
-        if(passwordTv.text.isEmpty() || nameTv.text.isEmpty() || emailTv.text.isEmpty() || enoTv.text.isEmpty()) {
+        if (passwordTv.text.isEmpty() || nameTv.text.isEmpty() || emailTv.text.isEmpty() || enoTv.text.isEmpty()) {
             Toast.makeText(this, "Required Fields can't be empty", Toast.LENGTH_LONG).show()
         } else {
             user = User(
-                username = nameTv.text.toString(),
-                enrolmentNumber = enoTv.text.toString(),
-                email = emailTv.text.toString(),
+                username = nameTv.text.trim().toString(),
+                enrolmentNumber = enoTv.text.trim().toString(),
+                email = emailTv.text.trim().toString(),
                 uid = uid
             )
         }

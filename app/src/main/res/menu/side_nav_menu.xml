@@ -20,7 +20,7 @@
                 android:id="@+id/changePasswordFragment"
                 android:title="Change Password" />
             <item
-                android:id="@+id/signOutDialogFragment"
+                android:id="@+id/signOutDialogFragment2"
                 android:title="Sign out" />
         </menu>
     </item>

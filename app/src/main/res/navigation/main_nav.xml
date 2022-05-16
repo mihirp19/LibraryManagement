@@ -7,17 +7,21 @@
     <fragment
         android:id="@+id/addBookFragment"
         android:name="com.example.librarymanagement.fragments.AddBookFragment"
-        android:label="AddBookFragment" />
+        android:label="Add Book" />
     <fragment
         android:id="@+id/issueBookFragment"
         android:name="com.example.librarymanagement.fragments.IssueBookFragment"
-        android:label="IssueBookFragment" />
+        android:label="Issued Books" />
     <fragment
         android:id="@+id/removeBookFragment"
         android:name="com.example.librarymanagement.fragments.RemoveBookFragment"
-        android:label="RemoveBookFragment" />
+        android:label="Remove Books" />
     <fragment
         android:id="@+id/userInfoFragment"
         android:name="com.example.librarymanagement.fragments.UserInfoFragment"
-        android:label="UserInfoFragment" />
+        android:label="Profile" />
+    <dialog
+        android:id="@+id/signOutDialogFragment2"
+        android:name="com.example.librarymanagement.fragments.SignOutDialogFragment"
+        android:label="Sign Out" />
 </navigation>
