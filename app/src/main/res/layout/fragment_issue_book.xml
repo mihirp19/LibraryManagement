@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_color">
+
+    <TextView
+        android:id="@+id/tv_issue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Issue Section"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+
+    <EditText
+        android:id="@+id/tv_issuer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Issuer"
+        app:layout_constraintTop_toBottomOf="@+id/tv_issue"
+        android:background="@drawable/button_bg"
+        android:layout_margin="20dp"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/et_enrollment_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enrollment Number"
+        app:layout_constraintTop_toBottomOf="@+id/tv_issuer"
+        android:background="@drawable/button_bg"
+        android:layout_margin="20dp"
+        android:padding="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_bg"
+        android:text="Issue Book"
+        app:layout_constraintTop_toBottomOf="@+id/et_enrollment_no"
+        android:layout_margin="20dp"
+        android:textStyle="bold"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

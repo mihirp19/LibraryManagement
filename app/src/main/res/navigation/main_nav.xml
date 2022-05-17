@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
     app:startDestination="@id/addBookFragment">
 
@@ -24,4 +25,9 @@
         android:id="@+id/signOutDialogFragment2"
         android:name="com.example.librarymanagement.fragments.SignOutDialogFragment"
         android:label="Sign Out" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.librarymanagement.fragments.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
 </navigation>

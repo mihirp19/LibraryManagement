@@ -2,15 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/bg_color">
 
     <TextView
         android:id="@+id/tv_name_user_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:textColor="@color/white"
         android:layout_marginTop="16dp"
-        android:text="Name"
+        android:text="User Name:"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,6 +21,7 @@
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/iv_edit_profile"
+        android:background="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -33,9 +37,10 @@
         android:id="@+id/tv_enrolment_number_user_profile"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
-        android:text="19012021033"
+        android:text="Mihir Panchal"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_name_user_profile" />
@@ -43,9 +48,10 @@
     <TextView
         android:id="@+id/tv_email_user_profile"
         android:layout_width="0dp"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
         android:text="mihirpanchal@gmail.com"
@@ -82,6 +88,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_my_books"
                 android:layout_width="match_parent"
+                tools:listitem="@layout/remove_book_list"
                 android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
