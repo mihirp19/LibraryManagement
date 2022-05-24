@@ -30,4 +30,8 @@
         android:name="com.example.librarymanagement.fragments.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/bookUiFragment"
+        android:name="com.example.librarymanagement.fragments.BookUiFragment"
+        android:label="BookUiFragment" />
 </navigation>
