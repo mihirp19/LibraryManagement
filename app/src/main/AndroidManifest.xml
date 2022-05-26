@@ -16,8 +16,12 @@
             android:name=".EditActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".AdminActivity"
             android:exported="true"
+            android:theme="@style/Theme.LibraryManagement.Main" />
+        <activity
+            android:name=".StudentActivity"
+            android:exported="false"
             android:theme="@style/Theme.LibraryManagement.Main" />
         <activity
             android:name=".SignIn"

@@ -4,10 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
+import com.example.librarymanagement.models.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
+    private val userCollection = FirebaseFirestore.getInstance().collection("user")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,10 +19,26 @@ class MainActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
         val currentUser = mAuth.currentUser
-        if(currentUser?.uid != null){
-            Intent(this, HomeActivity::class.java).also { intent ->
-                startActivity(intent)
-                finish()
+        if (currentUser?.uid != null) {
+            try {
+                userCollection.document(currentUser.uid).get().addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        val user = it.result.toObject(User::class.java)
+                        if (user?.role?.trim() == "admin") {
+                            Intent(this, AdminActivity::class.java).also { intent ->
+                                startActivity(intent)
+                                this.finish()
+                            }
+                        } else {
+                            Intent(this, StudentActivity::class.java).also { intent ->
+                                startActivity(intent)
+                                this.finish()
+                            }
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -30,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        signinBtn.setOnClickListener{
+        signinBtn.setOnClickListener {
             Intent(this, SignIn::class.java).also {
                 startActivity(it)
             }

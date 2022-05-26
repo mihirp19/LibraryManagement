@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/student_nav"
+    app:startDestination="@id/studentMainFragment">
+
+    <fragment
+        android:id="@+id/studentMainFragment"
+        android:name="com.example.librarymanagement.fragments.StudentMainFragment"
+        android:label="Home" />
+    <fragment
+        android:id="@+id/studentInfoFragment"
+        android:name="com.example.librarymanagement.fragments.StudentInfoFragment"
+        android:label="Student" />
+    <dialog
+        android:id="@+id/signOutDialogFragment"
+        android:name="com.example.librarymanagement.fragments.SignOutDialogFragment"
+        android:label="Signout" />
+    <fragment
+        android:id="@+id/editProfileFragmentStudent"
+        android:name="com.example.librarymanagement.fragments.EditProfileFragmentStudent"
+        android:label="EditProfileFragmentStudent" />
+    <fragment
+        android:id="@+id/changePasswordStudentFragment"
+        android:name="com.example.librarymanagement.fragments.ChangePasswordStudentFragment"
+        android:label="ChangePasswordStudentFragment" />
+</navigation>

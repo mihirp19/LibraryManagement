@@ -4,47 +4,65 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/iv_book_ui"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_margin="20dp"
-        android:src="@color/black"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tv_book_title_ui"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
-        android:text="Title"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/iv_book_ui"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
 
-    <TextView
-        android:id="@+id/tv_book_author_ui"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:text="Author"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/iv_book_ui"
-        app:layout_constraintTop_toBottomOf="@id/tv_book_title_ui" />
+            <ImageView
+                android:id="@+id/iv_book_ui"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:src="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_description_ui"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
-        android:text="Book Description goes here"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/iv_book_ui"
-        app:layout_constraintTop_toBottomOf="@id/tv_book_author_ui" />
+            <TextView
+                android:id="@+id/tv_book_title_ui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:text="Title"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/iv_book_ui"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/tv_book_author_ui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:text="Author"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/iv_book_ui"
+                app:layout_constraintTop_toBottomOf="@id/tv_book_title_ui" />
+
+            <TextView
+                android:id="@+id/tv_description_ui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:text="Book Description goes here"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/iv_book_ui"
+                app:layout_constraintTop_toBottomOf="@id/tv_book_author_ui" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

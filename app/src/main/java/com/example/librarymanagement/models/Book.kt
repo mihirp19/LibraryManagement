@@ -6,5 +6,9 @@ data class Book(
     val author: String = "",
     val year: String = "",
     val category: String = "",
-    val issuedBy: String = ""
+    val description: String = "",
+    val issuedFrom: String = "",
+    val issuedBy: String = "",
+    val issuedAt: Long = System.currentTimeMillis(),
+    val issuedTill: Long = 0L
 )

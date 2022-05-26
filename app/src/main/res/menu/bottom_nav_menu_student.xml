@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="bottom_nav_view">
+
+    <item
+        android:id="@+id/studentMainFragment"
+        android:icon="@drawable/ic_1"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/removeBookFragment"
+        android:icon="@drawable/ic_1"
+        android:title="Request Book"/>
+
+    <item
+        android:id="@+id/studentInfoFragment"
+        android:icon="@drawable/ic_1"
+        android:title="User Info"/>
+
+</menu>

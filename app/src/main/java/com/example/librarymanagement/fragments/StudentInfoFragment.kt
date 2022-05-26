@@ -11,21 +11,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.librarymanagement.R
 import com.example.librarymanagement.adapter.BooksAdapter
+import com.example.librarymanagement.adapter.BooksAdapterStudent
 import com.example.librarymanagement.models.Book
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.auth.User
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
-class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
+class StudentInfoFragment : Fragment(R.layout.fragment_student_info) {
+
 
     private val userCollection = FirebaseFirestore.getInstance().collection("user")
     private val bookCollection = FirebaseFirestore.getInstance().collection("books")
 
-    private lateinit var adapter: BooksAdapter
+    private lateinit var adapter: BooksAdapterStudent
 
     private lateinit var rvBooks: RecyclerView
 
@@ -34,29 +32,14 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tvNameUserProfile = view.findViewById<TextView>(R.id.tv_name_user_profile)
-        val tvEnrolUserProfile = view.findViewById<TextView>(R.id.tv_enrolment_number_user_profile)
+        val tvNameUserProfile = view.findViewById<TextView>(R.id.tv_name_student_profile)
+        val tvEnrolUserProfile =
+            view.findViewById<TextView>(R.id.tv_enrolment_number_student_profile)
         val tvEmailUserProfile = view.findViewById<TextView>(R.id.tv_email_user_profile)
-        val ivEditProfile = view.findViewById<AppCompatImageButton>(R.id.iv_edit_profile)
+        val ivEditProfile = view.findViewById<AppCompatImageButton>(R.id.iv_edit_profile_student)
         rvBooks = view.findViewById(R.id.rv_my_books)
 
         getUpdatedList()
-
-        adapter.setOnDeleteClickListener { book ->
-            bookCollection.document(book.bookUid).delete().addOnCompleteListener {
-                if (it.isSuccessful) {
-                    Toast.makeText(requireActivity(), "Book deleted!", Toast.LENGTH_SHORT).show()
-                    getUpdatedList()
-                } else {
-                    Toast.makeText(
-                        requireActivity(),
-                        "${it.exception?.message}",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                }
-            }
-        }
 
         adapter.setOnBookClickListener {
             val bundle = Bundle()
@@ -80,7 +63,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
         }
 
         ivEditProfile.setOnClickListener {
-            findNavController().navigate(R.id.editProfileFragment3)
+            findNavController().navigate(R.id.editProfileFragmentStudent)
         }
 
     }
@@ -91,12 +74,16 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
                 list =
                     it.result.toObjects(Book::class.java) as ArrayList<Book>
             } else {
-                Toast.makeText(requireActivity(), "${it.exception?.message}", Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    requireActivity(),
+                    "${it.exception?.message}",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
         }
         rvBooks.layoutManager = LinearLayoutManager(context)
-        adapter = BooksAdapter(requireContext(), list)
+        adapter = BooksAdapterStudent(requireContext(), list)
         rvBooks.adapter = adapter
     }
 }

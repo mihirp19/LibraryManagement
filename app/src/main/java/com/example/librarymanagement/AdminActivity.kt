@@ -3,12 +3,10 @@ package com.example.librarymanagement
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -18,7 +16,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
-class HomeActivity : AppCompatActivity() {
+class AdminActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -28,7 +26,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_admin)
 
         drawerLayout = findViewById(R.id.drawer_layout)
         toggle =
@@ -52,7 +50,7 @@ class HomeActivity : AppCompatActivity() {
                 R.id.addBookFragment,
                 R.id.removeBookFragment,
                 R.id.issueBookFragment,
-                R.id.userProfileFragment,
+                R.id.userInfoFragment,
                 R.id.signOutDialogFragment2,
             )
         ).setOpenableLayout(drawerLayout)
@@ -64,11 +62,20 @@ class HomeActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         NavigationUI.setupWithNavController(navView, navController)
 
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
-            return true
+            return when (navController.currentDestination?.id) {
+                in listOf(R.id.changePasswordFragment, R.id.editProfileFragment3) -> {
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    super.onOptionsItemSelected(item)
+                }
+                else -> {
+                    true
+                }
+            }
         }
         return super.onOptionsItemSelected(item)
     }

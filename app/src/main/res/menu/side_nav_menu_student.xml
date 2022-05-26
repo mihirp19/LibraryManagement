@@ -6,10 +6,10 @@
     <item android:title="General">
         <menu>
             <item
-                android:id="@+id/userInfoFragment"
+                android:id="@+id/studentInfoFragment"
                 android:title="Profile" />
             <item
-                android:id="@+id/editProfileFragment"
+                android:id="@+id/editProfileFragmentStudent"
                 android:title="Edit Profile" />
         </menu>
     </item>
@@ -17,10 +17,10 @@
     <item android:title="Authorization">
         <menu>
             <item
-                android:id="@+id/changePasswordFragment"
+                android:id="@+id/changePasswordStudentFragment"
                 android:title="Change Password" />
             <item
-                android:id="@+id/signOutDialogFragment2"
+                android:id="@+id/signOutDialogFragment"
                 android:title="Sign out" />
         </menu>
     </item>

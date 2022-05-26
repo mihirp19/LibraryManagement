@@ -24,23 +24,43 @@ class SignIn : AppCompatActivity() {
         val bckBtn = findViewById<ImageButton>(R.id.bck_btn)
         val forBtn = findViewById<TextView>(R.id.tv_reg)
         val sigupBtn = findViewById<Button>(R.id.signup_btn)
+        val passwordTv = findViewById<EditText>(R.id.et_pass)
+        val nameTv = findViewById<EditText>(R.id.et_username)
+        val emailTv = findViewById<EditText>(R.id.et_email)
+        val enoTv = findViewById<EditText>(R.id.et_erno)
+
 
         sigupBtn.setOnClickListener {
-            val user = checkFields()
-            if (user != null) {
-                val passwordTv = findViewById<EditText>(R.id.et_pass)
-                mAuth.createUserWithEmailAndPassword(user.email, passwordTv.text.toString())
-                    .addOnCompleteListener(
-                        this
-                    ) { task ->
-                        if (task.isSuccessful) {
-                            Toast.makeText(this@SignIn, "Signup Successful", Toast.LENGTH_LONG)
-                                .show()
-                            userCollection.document(user.uid).set(user)
-                        } else {
-                            Log.d("SignInActivity: ", task.exception.toString())
+            if (passwordTv.text.isEmpty() || nameTv.text.isEmpty() || emailTv.text.isEmpty() || enoTv.text.isEmpty()) {
+                Toast.makeText(this, "Required Fields can't be empty", Toast.LENGTH_LONG).show()
+            } else {
+                var role = "student"
+                if (enoTv.text.trim().toString()[0] == 'A') {
+                    role = "admin"
+                }
+                mAuth.createUserWithEmailAndPassword(
+                    emailTv.text.toString(),
+                    passwordTv.text.toString()
+                ).addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this@SignIn, "Signup Successful", Toast.LENGTH_LONG).show()
+                        userCollection.document(task.result.user!!.uid).set(
+                            User(
+                                username = nameTv.text.trim().toString(),
+                                enrolmentNumber = enoTv.text.trim().toString(),
+                                email = emailTv.text.trim().toString(),
+                                uid = task.result.user!!.uid,
+                                role = role
+                            )
+                        )
+                        Intent(this, LoginActivity::class.java).also { intent ->
+                            startActivity(intent)
+                            this.finish()
                         }
+                    } else {
+                        Log.d("SignInActivity: ", task.exception.toString())
                     }
+                }
             }
         }
 
@@ -59,28 +79,5 @@ class SignIn : AppCompatActivity() {
         Intent(this, MainActivity::class.java).also {
             startActivity(it)
         }
-    }
-
-    private fun checkFields(): User? {
-        var user: User? = null
-        val passwordTv = findViewById<EditText>(R.id.et_pass)
-        val nameTv = findViewById<EditText>(R.id.et_username)
-        val emailTv = findViewById<EditText>(R.id.et_email)
-        val enoTv = findViewById<EditText>(R.id.et_erno)
-
-        val uid = UUID.randomUUID().toString().replace("-", "")
-
-        if (passwordTv.text.isEmpty() || nameTv.text.isEmpty() || emailTv.text.isEmpty() || enoTv.text.isEmpty()) {
-            Toast.makeText(this, "Required Fields can't be empty", Toast.LENGTH_LONG).show()
-        } else {
-            user = User(
-                username = nameTv.text.trim().toString(),
-                enrolmentNumber = enoTv.text.trim().toString(),
-                email = emailTv.text.trim().toString(),
-                uid = uid
-            )
-        }
-
-        return user
     }
 }

@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import com.example.librarymanagement.models.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
+    private val userCollection = FirebaseFirestore.getInstance().collection("user")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +37,38 @@ class LoginActivity : AppCompatActivity() {
                 ).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Successfully logged in!", Toast.LENGTH_LONG).show()
-                        Intent(this, HomeActivity::class.java).also {
-                            startActivity(it)
-                            this.finish()
+                        val currentUser = task.result.user
+                        if (currentUser?.uid != null) {
+                            try {
+                                userCollection.document(currentUser.uid).get()
+                                    .addOnCompleteListener {
+                                        if (it.isSuccessful) {
+                                            val user = it.result.toObject(User::class.java)
+                                            if (user?.role?.trim() == "admin") {
+                                                Intent(
+                                                    this,
+                                                    AdminActivity::class.java
+                                                ).also { intent ->
+                                                    startActivity(intent)
+                                                    this.finish()
+                                                }
+                                            } else {
+                                                Intent(
+                                                    this,
+                                                    StudentActivity::class.java
+                                                ).also { intent ->
+                                                    startActivity(intent)
+                                                    this.finish()
+                                                }
+                                            }
+                                        }
+                                    }
+                            } catch (e: Exception) {
+                                Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            Log.d("LoginActivity: ", task.exception.toString())
                         }
-                    } else {
-                        Log.d("LoginActivity: ", task.exception.toString())
                     }
                 }
             } else {
