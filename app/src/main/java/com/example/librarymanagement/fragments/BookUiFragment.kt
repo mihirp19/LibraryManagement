@@ -26,6 +26,11 @@ class BookUiFragment : Fragment(R.layout.fragment_book_ui) {
                 if (it.isSuccessful) {
                     book =
                         it.result.toObject(Book::class.java)!!
+                    val tvBookName = view.findViewById<TextView>(R.id.tv_book_title)
+                    val tvBookDescription = view.findViewById<TextView>(R.id.tv_description)
+
+                    tvBookName.text = book.name
+                    tvBookDescription.text = book.author
                 } else {
                     Toast.makeText(
                         requireActivity(),
@@ -36,11 +41,5 @@ class BookUiFragment : Fragment(R.layout.fragment_book_ui) {
                 }
             }
         }
-
-        val tvBookName = view.findViewById<TextView>(R.id.tv_book_title)
-        val tvBookDescription = view.findViewById<TextView>(R.id.tv_description)
-
-        tvBookName.text = book.name
-        tvBookDescription.text = book.author
     }
 }

@@ -68,7 +68,7 @@ class AdminActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
             return when (navController.currentDestination?.id) {
-                in listOf(R.id.changePasswordFragment, R.id.editProfileFragment3) -> {
+                in listOf(R.id.changePasswordFragment, R.id.editProfileFragment3, R.id.bookUiFragment) -> {
                     drawerLayout.closeDrawer(GravityCompat.START)
                     super.onOptionsItemSelected(item)
                 }

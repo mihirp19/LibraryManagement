@@ -1,19 +1,15 @@
 package com.example.librarymanagement.adapter
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.librarymanagement.R
 import com.example.librarymanagement.models.Book
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.android.material.card.MaterialCardView
 
 class BooksAdapter(var context: Context, var bookList: ArrayList<Book>) :
     RecyclerView.Adapter<BooksAdapter.BooksViewHolder>() {
@@ -23,6 +19,7 @@ class BooksAdapter(var context: Context, var bookList: ArrayList<Book>) :
         val tvBookTitle = itemView.findViewById<TextView>(R.id.txt_book_name)
         val tvBookAuthor = itemView.findViewById<TextView>(R.id.txt_book_author)
         val ivRemoveBook = itemView.findViewById<ImageView>(R.id.iv_delete_book)
+        val parentLayout = itemView.findViewById<MaterialCardView>(R.id.parent_layout)
     }
 
 
@@ -44,7 +41,7 @@ class BooksAdapter(var context: Context, var bookList: ArrayList<Book>) :
             }
         }
 
-        holder.itemView.setOnClickListener {
+        holder.parentLayout.setOnClickListener {
             onBookClickListener?.let { click ->
                 click(book)
             }

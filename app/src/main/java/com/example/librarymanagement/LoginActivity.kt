@@ -69,6 +69,8 @@ class LoginActivity : AppCompatActivity() {
                         } else {
                             Log.d("LoginActivity: ", task.exception.toString())
                         }
+                    } else {
+                        Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {

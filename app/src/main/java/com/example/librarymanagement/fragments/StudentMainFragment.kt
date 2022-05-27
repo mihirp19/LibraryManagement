@@ -49,7 +49,7 @@ class StudentMainFragment : Fragment(R.layout.fragment_student_main) {
     }
 
     private fun getUpdatedList() {
-        var enrNo = ""
+        var enrNo: String
         userCollection.document(Firebase.auth.currentUser!!.uid).get().addOnCompleteListener {
             if (it.isSuccessful) {
                 enrNo = it.result.toObject(User::class.java)?.enrolmentNumber ?: ""

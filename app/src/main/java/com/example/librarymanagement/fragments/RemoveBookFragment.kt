@@ -27,25 +27,11 @@ class RemoveBookFragment : Fragment(R.layout.fragment_remove_book) {
 
         rvBooks = view.findViewById(R.id.rv_remove_book_frag)
 
+        rvBooks.layoutManager = LinearLayoutManager(context)
+        adapter = BooksAdapter(requireContext(), list)
+        rvBooks.adapter = adapter
+
         getUpdatedList()
-
-        adapter.setOnDeleteClickListener { book ->
-            bookCollection.document(book.bookUid).delete().addOnCompleteListener {
-                if (it.isSuccessful) {
-                    Toast.makeText(requireActivity(), "Book deleted!", Toast.LENGTH_SHORT).show()
-                    getUpdatedList()
-                } else {
-                    Toast.makeText(requireActivity(), "${it.exception?.message}", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
-        }
-
-        adapter.setOnBookClickListener {
-            val bundle = Bundle()
-            bundle.putString("0", it.bookUid)
-            findNavController().navigate(R.id.bookUiFragment, bundle)
-        }
 
     }
 
@@ -54,13 +40,35 @@ class RemoveBookFragment : Fragment(R.layout.fragment_remove_book) {
             if (it.isSuccessful) {
                 list =
                     it.result.toObjects(Book::class.java) as ArrayList<Book>
+                rvBooks.layoutManager = LinearLayoutManager(context)
+                adapter = BooksAdapter(requireContext(), list)
+                rvBooks.adapter = adapter
+                adapter.setOnDeleteClickListener { book ->
+                    bookCollection.document(book.bookUid).delete().addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(requireActivity(), "Book deleted!", Toast.LENGTH_SHORT)
+                                .show()
+                            getUpdatedList()
+                        } else {
+                            Toast.makeText(
+                                requireActivity(),
+                                "${it.exception?.message}",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
+                    }
+                }
+
+                adapter.setOnBookClickListener {
+                    val bundle = Bundle()
+                    bundle.putString("0", it.bookUid)
+                    findNavController().navigate(R.id.bookUiFragment, bundle)
+                }
             } else {
                 Toast.makeText(requireActivity(), "${it.exception?.message}", Toast.LENGTH_SHORT)
                     .show()
             }
         }
-        rvBooks.layoutManager = LinearLayoutManager(context)
-        adapter = BooksAdapter(requireContext(), list)
-        rvBooks.adapter = adapter
     }
 }

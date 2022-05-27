@@ -25,4 +25,8 @@
         android:id="@+id/changePasswordStudentFragment"
         android:name="com.example.librarymanagement.fragments.ChangePasswordStudentFragment"
         android:label="ChangePasswordStudentFragment" />
+    <fragment
+        android:id="@+id/bookUiFragment2"
+        android:name="com.example.librarymanagement.fragments.BookUiFragment"
+        android:label="BookUiFragment" />
 </navigation>
