@@ -40,10 +40,16 @@
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_edit_profile_student.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_issue_book.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_remove_book.xml" value="0.1796875" />
+        <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_request_book.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_requested_list.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_requested_users.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_student_info.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_student_main.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_user_info.xml" value="0.22" />
+        <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/item_book.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/item_book_layout.xml" value="0.1796875" />
+        <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/item_request_book.xml" value="0.1796875" />
+        <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/item_users.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/remove_book_list.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/student_activity_info.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/student_main_activity.xml" value="0.1796875" />

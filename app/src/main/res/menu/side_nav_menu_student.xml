@@ -11,6 +11,9 @@
             <item
                 android:id="@+id/editProfileFragmentStudent"
                 android:title="Edit Profile" />
+            <item
+                android:id="@+id/requestBookFragment"
+                android:title="Request Book" />
         </menu>
     </item>
 

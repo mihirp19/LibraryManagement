@@ -9,7 +9,7 @@
         android:title="Home"/>
 
     <item
-        android:id="@+id/removeBookFragment"
+        android:id="@+id/requestBookFragment"
         android:icon="@drawable/ic_1"
         android:title="Request Book"/>
 

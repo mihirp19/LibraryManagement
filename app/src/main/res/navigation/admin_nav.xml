@@ -38,4 +38,12 @@
         android:id="@+id/editProfileFragment3"
         android:name="com.example.librarymanagement.fragments.EditProfileFragment"
         android:label="EditProfileFragment" />
+    <fragment
+        android:id="@+id/requestedUsersFragment"
+        android:name="com.example.librarymanagement.fragments.RequestedUsersFragment"
+        android:label="RequestedUsersFragment" />
+    <fragment
+        android:id="@+id/requestedListFragment"
+        android:name="com.example.librarymanagement.fragments.RequestedListFragment"
+        android:label="RequestedListFragment" />
 </navigation>

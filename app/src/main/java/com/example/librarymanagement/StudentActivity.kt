@@ -72,7 +72,8 @@ class StudentActivity : AppCompatActivity() {
                 in listOf(
                     R.id.changePasswordStudentFragment,
                     R.id.editProfileFragmentStudent,
-                    R.id.bookUiFragment2
+                    R.id.bookUiFragment2,
+                    R.id.requestBookFragment
                 ) -> {
                     drawerLayout.closeDrawer(GravityCompat.START)
                     super.onOptionsItemSelected(item)

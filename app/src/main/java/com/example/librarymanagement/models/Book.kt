@@ -10,5 +10,7 @@ data class Book(
     val issuedFrom: String = "",
     val issuedBy: String = "",
     val issuedAt: Long = System.currentTimeMillis(),
+    val status: String = "",
+    val requestedBy: ArrayList<String> = arrayListOf(),
     val issuedTill: Long = 0L
 )

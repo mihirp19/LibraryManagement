@@ -27,10 +27,12 @@ class BookUiFragment : Fragment(R.layout.fragment_book_ui) {
                     book =
                         it.result.toObject(Book::class.java)!!
                     val tvBookName = view.findViewById<TextView>(R.id.tv_book_title)
-                    val tvBookDescription = view.findViewById<TextView>(R.id.tv_description)
+                    val tvBookAuthor = view.findViewById<TextView>(R.id.tv_author)
+                    val tvBookDescription = view.findViewById<TextView>(R.id.tv_summary)
 
                     tvBookName.text = book.name
-                    tvBookDescription.text = book.author
+                    tvBookAuthor.text = book.author
+                    tvBookDescription.text = book.description
                 } else {
                     Toast.makeText(
                         requireActivity(),

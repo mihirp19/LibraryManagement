@@ -29,4 +29,8 @@
         android:id="@+id/bookUiFragment2"
         android:name="com.example.librarymanagement.fragments.BookUiFragment"
         android:label="BookUiFragment" />
+    <fragment
+        android:id="@+id/requestBookFragment"
+        android:name="com.example.librarymanagement.fragments.RequestBookFragment"
+        android:label="RequestBookFragment" />
 </navigation>

@@ -67,7 +67,7 @@ class BooksAdapter(var context: Context, var bookList: ArrayList<Book>) :
     private var onBookClickListener: ((Book) -> Unit)? = null
 
     fun setOnBookClickListener(listener: (Book) -> Unit) {
-        onDeleteClickListener = listener
+        onBookClickListener = listener
     }
 
 }
