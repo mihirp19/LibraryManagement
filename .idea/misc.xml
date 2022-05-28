@@ -43,16 +43,20 @@
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_change_password.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_edit_profile.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_issue_book.xml" value="0.1796875" />
+        <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_issued_books.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_remove_book.xml" value="0.1796875" />
+        <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_request_book.xml" value="0.1796875" />
+        <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_requested_list.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/fragment_user_info.xml" value="0.22" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/item_book_layout.xml" value="0.1796875" />
+        <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/item_issued_book.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/layout/remove_book_list.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1796875" />
         <entry key="..\:/Users/om/AndroidStudioProjects/LibraryManagement/app/src/main/res/menu/side_nav_menu.xml" value="0.1796875" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

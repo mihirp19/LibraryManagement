@@ -10,15 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.librarymanagement.R
 import com.example.librarymanagement.adapter.RequestedUsersAdapter
 import com.example.librarymanagement.models.Book
-import com.example.librarymanagement.models.User
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 
 class RequestedUsersFragment : Fragment(R.layout.fragment_requested_users) {
 
     private val bookCollection = FirebaseFirestore.getInstance().collection("books")
-    private val usersCollection = FirebaseFirestore.getInstance().collection("user")
 
     private lateinit var adapter: RequestedUsersAdapter
 
@@ -71,7 +67,11 @@ class RequestedUsersFragment : Fragment(R.layout.fragment_requested_users) {
                             "issuedBy",
                             user.uid,
                             "issuedAt",
-                            System.currentTimeMillis()
+                            System.currentTimeMillis(),
+                            "issuedTill",
+                            (System.currentTimeMillis() + 604800000L),
+                            "requestedBy",
+                            arrayListOf<String>()
                         )
                     findNavController().navigate(R.id.requestedListFragment)
                 }

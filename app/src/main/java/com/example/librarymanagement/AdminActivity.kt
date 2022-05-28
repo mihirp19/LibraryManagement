@@ -73,7 +73,8 @@ class AdminActivity : AppCompatActivity() {
                     R.id.editProfileFragment3,
                     R.id.bookUiFragment,
                     R.id.requestedUsersFragment,
-                    R.id.requestedListFragment
+                    R.id.requestedListFragment,
+                    R.id.issuedBookFragment
                 ) -> {
                     drawerLayout.closeDrawer(GravityCompat.START)
                     super.onOptionsItemSelected(item)

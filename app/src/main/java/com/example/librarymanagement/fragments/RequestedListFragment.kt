@@ -37,24 +37,29 @@ class RequestedListFragment : Fragment(R.layout.fragment_requested_list) {
     }
 
     private fun getUpdatedList() {
-        bookCollection.whereNotEqualTo("status", "issued").get().addOnCompleteListener {
-            if (it.isSuccessful) {
-                list =
-                    it.result.toObjects(Book::class.java) as ArrayList<Book>
-                adapter = RequestedBooksAdapter(requireContext(), list)
-                recyclerView.adapter = adapter
+        bookCollection.whereEqualTo("status", "requested").get()
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    list =
+                        it.result.toObjects(Book::class.java) as ArrayList<Book>
+                    adapter = RequestedBooksAdapter(requireContext(), list)
+                    recyclerView.adapter = adapter
 
-                adapter.setOnBookClickListener {
-                    val bundle = Bundle()
-                    bundle.putString("0", it.bookUid)
-                    findNavController().navigate(R.id.requestedUsersFragment, bundle)
+                    adapter.setOnBookClickListener {
+                        val bundle = Bundle()
+                        bundle.putString("0", it.bookUid)
+                        findNavController().navigate(R.id.requestedUsersFragment, bundle)
+                    }
+
+                } else {
+                    Toast.makeText(
+                        requireActivity(),
+                        "${it.exception?.message}",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
                 }
-
-            } else {
-                Toast.makeText(requireActivity(), "${it.exception?.message}", Toast.LENGTH_SHORT)
-                    .show()
             }
-        }
     }
 
 }

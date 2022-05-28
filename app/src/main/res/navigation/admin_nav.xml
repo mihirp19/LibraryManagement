@@ -46,4 +46,8 @@
         android:id="@+id/requestedListFragment"
         android:name="com.example.librarymanagement.fragments.RequestedListFragment"
         android:label="RequestedListFragment" />
+    <fragment
+        android:id="@+id/issuedBookFragment"
+        android:name="com.example.librarymanagement.fragments.IssuedBookFragment"
+        android:label="IssuedBookFragment" />
 </navigation>
