@@ -54,6 +54,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="25dp"
         android:hint="Username"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:padding="10dp"
         app:layout_constraintVertical_bias="0.2"/>
@@ -66,6 +67,7 @@
         app:layout_constraintTop_toBottomOf="@id/et_username"
         android:layout_margin="25dp"
         android:hint="Enrollment Number"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:padding="10dp"/>
 
@@ -77,6 +79,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_erno"
         android:layout_margin="25dp"
         android:hint="Email"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:padding="10dp" />
 
@@ -97,6 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up"
+        android:textColor="@color/black"
         android:background="@drawable/button_bg"
         app:layout_constraintTop_toBottomOf="@+id/et_pass"
         android:layout_marginTop="40dp"

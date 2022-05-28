@@ -63,13 +63,13 @@ class RequestedUsersFragment : Fragment(R.layout.fragment_requested_users) {
                 adapter = RequestedUsersAdapter(requireContext(), book.requestedBy)
                 recyclerView.adapter = adapter
 
-                adapter.setOnUserClickListener {
+                adapter.setOnUserClickListener { user ->
                     bookCollection.document(book.bookUid)
                         .update(
                             "status",
                             "issued",
                             "issuedBy",
-                            Firebase.auth.currentUser!!.uid,
+                            user.uid,
                             "issuedAt",
                             System.currentTimeMillis()
                         )
